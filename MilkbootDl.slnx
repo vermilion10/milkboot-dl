@@ -1,6 +1,10 @@
 <Solution>
   <Folder Name="/src/">
+    <Project Path="src/MilkbootDl.App/MilkbootDl.App.csproj" />
     <Project Path="src/MilkbootDl.Cli/MilkbootDl.Cli.csproj" />
     <Project Path="src/MilkbootDl.Core/MilkbootDl.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/MilkbootDl.App.Tests/MilkbootDl.App.Tests.csproj" />
   </Folder>
 </Solution>
