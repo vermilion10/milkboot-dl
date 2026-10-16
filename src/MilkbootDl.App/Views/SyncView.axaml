@@ -1,6 +1,7 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:vm="using:MilkbootDl.App.ViewModels"
+             xmlns:app="using:MilkbootDl.App"
              xmlns:controls="using:MilkbootDl.App.Controls"
              x:Class="MilkbootDl.App.Views.SyncView"
              x:DataType="vm:SyncViewModel">
@@ -35,6 +36,8 @@
               </DataTemplate>
             </ItemsControl.ItemTemplate>
           </ItemsControl>
+          <HyperlinkButton Content="Report a problem" NavigateUri="{x:Static app:Links.ReportProblem}" Padding="0,4"
+                           IsVisible="{Binding !!Failures.Count}" />
         </StackPanel>
       </controls:ChamferBorder>
 
