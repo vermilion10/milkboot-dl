@@ -14,7 +14,7 @@ Everything is read from the game's own files: ship stats, voice lines, card art,
   - skins, with paintings, face expressions and voice lines;
   - animated chibi, dynamic skin and Live2D models.
 - **Equipment.** Every codex entry with its stats at each enhancement level, speciality, ammo and the hull types that can equip it.
-- **Juustagram and Fleet Chat.** The ships' social posts with comments and replies, and the in-game chats, which branch on the replies you pick.
+- **Social posts and chats.** The ships' posts with comments and replies, and the in-game chats, which branch on the replies you pick.
 - **Music.** The in-game music collection by album, plus every music track the game ships. Play tracks or save them as WAV.
 - **ASMR.** The game's sound stories, played with their subtitles. The line being spoken is highlighted, and clicking a line jumps there.
 - **Story.** The story archive, readable chapter by chapter.
@@ -65,6 +65,14 @@ Start the desktop app:
 dotnet run -c Release --project src/MilkbootDl.App
 ```
 
+milkboot-dl doesn't include the game's server addresses or audio key. Before the first run, copy `client.example.json` to `%APPDATA%\milkboot-dl\client.json` (or next to the executable) and fill in:
+
+- `gateHost` and `gatePort`: the gate server that answers version queries;
+- `cdnUrl`: the base address of the asset CDN;
+- `hcaKey`: the key the client's audio is encrypted with, as a hex number.
+
+Without this file the app still opens and reads data that is already downloaded, but syncing, downloading and audio decoding report that the file is missing.
+
 On first start the app has no game data yet:
 
 1. Open **Sync** and update the game data (about 150 MB). The app then reads ships, equipment, stories and the rest from it.
@@ -84,14 +92,14 @@ Update the game data into a folder of your choice:
 dotnet run -c Release --project src/MilkbootDl.Cli -- update --data ./output
 ```
 
-Download and extract one ship's paintings, for example Enterprise (`qiye`):
+Download and extract one ship's paintings by its asset name:
 
 ```bash
-dotnet run -c Release --project src/MilkbootDl.Cli -- download painting qiye
+dotnet run -c Release --project src/MilkbootDl.Cli -- download painting <name>
 ```
 
 ```bash
-dotnet run -c Release --project src/MilkbootDl.Cli -- extract painting/ qiye
+dotnet run -c Release --project src/MilkbootDl.Cli -- extract painting/ <name>
 ```
 
 The commands share one folder layout: `AssetBundles` for downloaded files, `art` for extracted images, and JSON tables under `config`, `sharecfg` and `story`.
@@ -118,4 +126,4 @@ milkboot-dl builds on open-source libraries and fonts. They are listed with thei
 
 ## Disclaimer
 
-milkboot-dl is an unofficial fan project, not affiliated with or endorsed by the game's developers or publishers. The game and all of its content, including art, audio, text and data, belong to their respective owners. Use the tool for personal viewing and archiving, and respect the game's terms of service.
+milkboot-dl is an unofficial fan project, not affiliated with or endorsed by the game's developers or publishers. The game and all of its content, including art, audio, text and data, belong to their respective owners. This repository contains no game assets, server addresses or keys. Use the tool for personal viewing and archiving, and respect the game's terms of service.

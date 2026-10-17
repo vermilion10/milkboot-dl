@@ -50,7 +50,7 @@ milkboot-dl doesn't include the web runtimes behind its animated viewers. When y
 
 ## Game content
 
-milkboot-dl contains no game content. Art, audio, text and data are downloaded from the game's servers to your computer when you use the tools. They belong to the game's developers and publishers.
+milkboot-dl contains no game content, server addresses or keys. Art, audio, text and data are downloaded from the game's servers to your computer when you use the tools. They belong to the game's developers and publishers.
 
 ## Acknowledgements
 
