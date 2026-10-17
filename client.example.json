@@ -1,0 +1,9 @@
+{
+  // The game client's gate server (host name and TCP port) that answers version queries.
+  "gateHost": "",
+  "gatePort": 80,
+  // Base address of the CDN that serves hash lists and assets, e.g. "https://cdn.example.com".
+  "cdnUrl": "",
+  // The key the client's HCA audio is encrypted with, as a hex number, e.g. "0x0123456789ABCDEF".
+  "hcaKey": ""
+}

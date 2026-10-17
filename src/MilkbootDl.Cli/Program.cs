@@ -759,6 +759,11 @@ public static class Program
         {
             Console.Error.WriteLine($"Unknown region '{name}'. Supported: {string.Join(", ", ClientRegion.All.Select(r => r.Name))}");
         }
+        else if (!region.IsConfigured)
+        {
+            Console.Error.WriteLine(ClientRegion.MissingMessage);
+            return null;
+        }
 
         return region;
     }

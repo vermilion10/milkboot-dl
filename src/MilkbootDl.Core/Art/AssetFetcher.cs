@@ -114,12 +114,13 @@ public sealed class AssetFetcher(HttpClient http, ClientRegion region, string da
 
     public const string AvatarFolder = "qicon/";
 
-    // Juustagram pictures aren't in bundles; the game loads them from its own image host, so only that host is used.
-    public const string PictureHost = "cdn.invalid";
+    // Juustagram pictures aren't in bundles; the game loads them from its CDN host, so only that host is used.
+    private string PictureHost => new Uri(region.CdnUrl).Host;
 
     public string? PicturePath(string url)
     {
-        if (!Uri.TryCreate(url, UriKind.Absolute, out var uri) || uri.Scheme != Uri.UriSchemeHttps || uri.Host != PictureHost)
+        if (!region.IsConfigured || !Uri.TryCreate(url, UriKind.Absolute, out var uri) || uri.Scheme != Uri.UriSchemeHttps
+            || uri.Host != PictureHost)
         {
             return null;
         }

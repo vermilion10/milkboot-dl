@@ -433,5 +433,8 @@ FodyWeavers.xsd
 /data/
 /output/
 
+# The server addresses and audio key, kept out of the repository (see client.example.json).
+client.json
+
 # Local design notes, kept out of the repository.
 DESIGN.md

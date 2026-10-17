@@ -10,8 +10,8 @@ namespace MilkbootDl.Core.Audio;
 // entry in the embedded AFS2 archive. Waveforms are HCA, encrypted with the game's key.
 public sealed class AcbFile
 {
-    // The game's HCA key.
-    public const ulong HcaKey = 0x0;
+    // The game's HCA key, from client.json.
+    public static ulong HcaKey => ClientRegion.En.HcaKey;
 
     private const int ReferenceWaveform = 1;
     private const int ReferenceSynth = 2;
