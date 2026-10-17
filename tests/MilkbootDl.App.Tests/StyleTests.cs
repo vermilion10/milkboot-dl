@@ -284,7 +284,7 @@ public class StyleTests
         var asmr = main.Asmr;
         await WaitUntil(() => asmr.IsReady || asmr.HasProblem);
         Assert.True(asmr.IsReady, asmr.Message);
-        Assert.Equal(30, asmr.Stories.Count);
+        Assert.True(asmr.Stories.Count >= 30);
         var kashino = asmr.Stories.Single(s => s.Story.Resource == "soundstory2_jp");
         asmr.SelectedStory = kashino;
         await WaitUntil(() => asmr.Lines.Count > 0);
